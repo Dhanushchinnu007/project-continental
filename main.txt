@@ -1,0 +1,66 @@
+Create a Repository on GitHub
+Go to GitHub  and log in to your account.
+Click on the "+" icon in the upper right corner and select "New repository."
+Fill in the repository name as "project-continental" and configure any other settings you need.
+Click on the "Create repository" button.
+
+Open your terminal or command prompt.
+Navigate to the directory where you want to create your local repository.
+
+git checkout -b main
+echo "This is the main branch." > main.txt
+git add main.txt
+git commit -m "Initial commit to main branch"
+
+git remote add origin <repository url>
+git branch -M main
+git push -u origin main
+
+
+2: Create Dev and Ops Repositories
+# Create Dev repository
+mkdir Dev
+cd Dev
+git init
+echo "This is the Dev repository." > file.txt
+git add file.txt
+git commit -m "Initial commit in Dev repository"
+
+# Create Ops repository
+cd ..
+mkdir Ops
+cd Ops
+git init
+echo "This is the Ops repository." > file.txt
+git add file.txt
+git commit -m "Initial commit in Ops 
+
+
+
+cd ../Dev
+echo "Dev change" >> file.txt
+git add file.txt
+git commit -m "Change in Dev repository"
+
+cd ../Ops
+echo "Ops change" >> file.txt
+git add file.txt
+git commit -m "Change in Ops repository"
+
+# Switch back to the "Dev" repository
+cd ../Dev
+
+# Attempt to merge "Ops" into "Dev"
+git merge ../Ops
+
+# Configure "vimdiff" as the merge tool
+git config --global merge.tool vimdiff
+
+# Retry the merge and open the merge tool
+git mergetool
+
+# Commit the resolved changes
+git commit -m "Merge conflict resolved"
+
+
+
